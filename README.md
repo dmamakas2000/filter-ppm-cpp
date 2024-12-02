@@ -28,7 +28,7 @@ $pp′(xx, yy) = pp(xx, yy)^v$
 
 Where each colour channel of a pixel is raised to the exponent $v$. Typical values for $v$ range between 0,5 and 2,0.
 
-## Execution
+## How It Works
 The following pattern displays the way the application is executed:
 
 ```filter -f [filter 1] [parameters] ... -f [filter k] [parameters] [parameters] [image file name]```
@@ -40,3 +40,29 @@ The input image filename is always given last. If no filter is given, the applic
 - ```filter -f gamma 2.0 -f linear -1 -1 -1 1 1 1 image01.ppm```
 - ```filter -f gamma 2.0 -f gamma 0.5 image01.ppm```
 - ```filter –f gamma 0.7 -f linear 1 0.8 0.3 0.1 0.1 0.3 –f gamma 1.2 image02.ppm```
+
+## Project Structure
+```
+filter-ppm-cpp/
+│
+├── src/                              # Source code files
+│   ├── PPMParser.cpp                 # Core implementation for parsing PPM images
+│   ├── PPMParser.h                   # Header file for the parser
+│   └── PPMFilter.cpp                 # Implementation of image filtering functions
+│
+├── include/                          # Additional headers (if applicable)
+│   └── PPMFilter.h                   # Header file for filtering operations
+│
+├── examples/                         # Example PPM files
+│   ├── pole.ppm                      # A sample PPM image
+│   └── pole.pgm                      # A sample PGM image
+│
+├── build/                            # Build files and Visual Studio configurations
+│   ├── PPMParserProject.sln          # Visual Studio solution file
+│   ├── PPMParserProject.vcxproj      # Visual Studio project file
+│   ├── PPMParserProject.filters      # Project filters for organization
+│   └── Debug/                        # Debug binaries and temporary files
+```
+
+## License
+This project is licensed under the **MIT License** - see the **[LICENSE](LICENSE)** file for details.
